@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { TodoContext } from './contexts/TodoContext';
+import { TodoContext } from '../contexts/TodoContext';
 import './App.css'
-import {type TodoContextType, Todo} from './types';
-import { mockTodos } from './data/mockTodos';
+import type { Todo } from '../types';
+import { mockTodos } from '../data/mockTodos';
 
 
 
@@ -26,8 +26,7 @@ export function AppProviders({children}:{children: React.ReactNode}) {
  }
  function deleteTodo(id:string | number){
     setTodos((todoArr) => todoArr.filter((todo) => todo.id !==id
-)
-)
+))
  }
   function editTodo(id: string | number, newText:string) {
     setTodos((todoArr) =>
