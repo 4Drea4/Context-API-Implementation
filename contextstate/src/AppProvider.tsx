@@ -1,27 +1,41 @@
 import { useState } from 'react';
 import { TodoContext } from './contexts/TodoContext';
 import './App.css'
+import type {TodoContextType, Todo} from './types';
+import { mockTodos } from './data/mockTodos';
 
-function AppProviders({children}:{children: React.ReactNode}) {
-  const [todos,setTodos] = useState(mockTodos);
 
 
- function addTodo(){}
- function toggleTodo(){}
- function deleteTodo(){}
- function editTodo(){}
- function clearCompleted(){}
+export function AppProviders({children}:{children: React.ReactNode}) {
+  const [todos,setTodos] = useState<Todo[]>(mockTodos);
 
- const todosValue ={todos, addTodo, toggleTodo, deleteTodo, editTodo, clearCompleted}
+  function addTodo(text:string){
+    const newTodo: Todo ={
+        id: Date.now(),
+        text,
+        completed: false
+    };
+    setTodos(prev => [...prev,newTodo]);
+  }
+
+ 
+
+
+//  function toggleTodo(){}
+//  function deleteTodo(){}
+//  function editTodo(){}
+//  function clearCompleted(){}
+
+//  const todosValue ={todos, addTodo, toggleTodo, deleteTodo, editTodo, clearCompleted}
 
 
   return (
     <TodoContext.Provider value={todosValue}>
-        <FilterContext.Provider>
+        {/* <FilterContext.Provider>
             <ThemeContext.Provider>
                 {children}
             </ThemeContext.Provider>
-        </FilterContext.Provider>
+        </FilterContext.Provider> */}
 
     </TodoContext.Provider>
     
