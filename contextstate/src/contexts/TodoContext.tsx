@@ -1,9 +1,9 @@
 import {createContext, useContext} from 'react';
 import type { TodoContextType } from '../types';
+import type { Todo } from '../types';
 
+export type TodoContextValue = {
 
-export const TodoContextValue = {
-    
     todos: Todo[];
     addTodo: (text:string) => void;
     toggleTodo: (id:number) => void;
@@ -12,4 +12,12 @@ export const TodoContextValue = {
     clearCompleted: ()=> void;
     
 };
-    export const TodoContext = createContext<TodoContextType | null>(null);
+    export const TodoContext = createContext<TodoContextType| null>(null);
+
+    export function useTodos(){
+        const context = useContext(TodoContext);
+        if (!context) {
+            throw new Error("Todo context");
+        }
+        return context;
+    }
