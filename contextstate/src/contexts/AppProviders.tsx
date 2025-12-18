@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { TodoContext } from './contexts/TodoContext';
 import './App.css'
-import type {TodoContextType, Todo} from './types';
+import {type TodoContextType, Todo} from './types';
 import { mockTodos } from './data/mockTodos';
 
 
@@ -15,18 +15,32 @@ export function AppProviders({children}:{children: React.ReactNode}) {
         text,
         completed: false,
     };
-    setTodos(prev => [...prev,newTodo]);
+    setTodos((todoArr)=> [...todoArr,newTodo]);
   }
 
- 
+ function toggleTodo(id:string | number){
+    setTodos((todoArr) =>
+       todoArr.map((todo) =>
+        todo.id === id ? {...todo, completed: !todo.completed} :todo
+))
+ }
+ function deleteTodo(id:string | number){
+    setTodos((todoArr) => todoArr.filter((todo) => todo.id !==id
+)
+)
+ }
+  function editTodo(id: string | number, newText:string) {
+    setTodos((todoArr) =>
+        todoArr.map((todo) => (todo.id === id ? 
+            {...todo, text: newText} : todo) )
+        )
+            }
 
-
- function toggleTodo(){}
- function deleteTodo(){}
- function editTodo(){}
- function clearCompleted(){}
-
- const value ={todos, addTodo, toggleTodo, deleteTodo, editTodo, clearCompleted}
+    function clearCompleted(){
+        setTodos((todoArr) => todoArr.filter((todo) => !todo.completed ));
+   
+    }
+    const value ={todos, addTodo, toggleTodo, deleteTodo, editTodo, clearCompleted};
 
 
   return (
