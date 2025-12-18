@@ -13,7 +13,7 @@ export function AppProviders({children}:{children: React.ReactNode}) {
     const newTodo: Todo ={
         id: Date.now(),
         text,
-        completed: false
+        completed: false,
     };
     setTodos(prev => [...prev,newTodo]);
   }
@@ -21,16 +21,16 @@ export function AppProviders({children}:{children: React.ReactNode}) {
  
 
 
-//  function toggleTodo(){}
-//  function deleteTodo(){}
-//  function editTodo(){}
-//  function clearCompleted(){}
+ function toggleTodo(){}
+ function deleteTodo(){}
+ function editTodo(){}
+ function clearCompleted(){}
 
-//  const todosValue ={todos, addTodo, toggleTodo, deleteTodo, editTodo, clearCompleted}
+ const value ={todos, addTodo, toggleTodo, deleteTodo, editTodo, clearCompleted}
 
 
   return (
-    <TodoContext.Provider value={todosValue}>
+    <TodoContext.Provider value={value}>{children}
         {/* <FilterContext.Provider>
             <ThemeContext.Provider>
                 {children}
@@ -42,4 +42,4 @@ export function AppProviders({children}:{children: React.ReactNode}) {
   );
 }
 
-export default App;
+
