@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { TodoContext } from '../contexts/TodoContext';
+import { TodoContext } from './TodoContext';
 // import './App.css';
 import type { Todo } from '../types';
 import { mockTodos } from '../data/mockTodos';
