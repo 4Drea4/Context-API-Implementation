@@ -46,14 +46,16 @@ export function AppProviders({children}:{children: React.ReactNode}) {
         setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
     }
 
+    const themeValue = {theme, toggleTheme};
 
   return (
+    
     <TodoContext.Provider value={value}>{children}
-        {/* <FilterContext.Provider>
+        {/* {/* <FilterContext.Provider> */}
             <ThemeContext.Provider>
                 {children}
             </ThemeContext.Provider>
-        </FilterContext.Provider> */}
+        {/* </FilterContext.Provider> */} 
 
     </TodoContext.Provider>
     
