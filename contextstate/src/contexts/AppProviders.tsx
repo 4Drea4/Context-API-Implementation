@@ -4,7 +4,7 @@ import { TodoContext } from './TodoContext';
 import type { Todo } from '../types';
 import { mockTodos } from '../data/mockTodos';
 import type{ Theme } from '../types';
-
+import { ThemeContext } from './ThemeContext';
 
 export function AppProviders({children}:{children: React.ReactNode}) {
   const [todos,setTodos] = useState<Todo[]>(mockTodos);
@@ -49,15 +49,14 @@ export function AppProviders({children}:{children: React.ReactNode}) {
     const themeValue = {theme, toggleTheme};
 
   return (
-    
-    <TodoContext.Provider value={value}>{children}
-        {/* {/* <FilterContext.Provider> */}
-            <ThemeContext.Provider>
-                {children}
-            </ThemeContext.Provider>
-        {/* </FilterContext.Provider> */} 
+       
 
-    </TodoContext.Provider>
+            <ThemeContext.Provider value={themeValue}>
+                  <TodoContext.Provider value={value}>{children}</TodoContext.Provider>
+            </ThemeContext.Provider>
+       
+
+  
     
   );
 }
