@@ -3,7 +3,7 @@ import { TodoContext } from './TodoContext';
 // import './App.css';
 import type { Todo } from '../types';
 import { mockTodos } from '../data/mockTodos';
-
+import type{ Theme } from '../types';
 
 
 export function AppProviders({children}:{children: React.ReactNode}) {
@@ -40,6 +40,11 @@ export function AppProviders({children}:{children: React.ReactNode}) {
    
     }
     const value ={todos, addTodo, toggleTodo, deleteTodo, editTodo, clearCompleted};
+
+    const [theme, setTheme] = useState<Theme>("light");
+    function toggleTheme(){
+        setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+    }
 
 
   return (
