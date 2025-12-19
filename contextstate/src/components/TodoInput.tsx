@@ -7,7 +7,8 @@ export default function TodoInput(){
 
     function handleSumbit(event: React.FormEvent){
         event.preventDefault();
-        if(text.trim()) return;
+        console.log("Add todo input");
+        if(!text.trim()) return;
         addTodo(text);
         setText("");
     }
