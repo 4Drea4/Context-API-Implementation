@@ -4,7 +4,7 @@ import { TodoContext } from './TodoContext';
 import type { Todo, Theme } from '../types';
 import { mockTodos } from '../data/mockTodos';
 import { ThemeContext } from './ThemeContext';
-import {}
+
 
 export function AppProviders({children}:{children: React.ReactNode}) {
   const [todos,setTodos] = useState<Todo[]>(mockTodos);
