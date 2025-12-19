@@ -5,7 +5,7 @@ export default function TodoList(){
     const {todos} =  useTodos();
 
     if (todos.length === 0){
-        return <p>Add a todos</p>
+        return <p>Add a todo Item</p>
     }
     return(
         <ul>
