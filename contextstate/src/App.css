@@ -45,13 +45,15 @@
 .light{
   background-color: #BFD3C1;
   color: #68A691;
-  min-width: 500px;
+  min-width: 600px;
   border-radius: 15px;
+  padding:2rem;
 }
 .dark{
   background-color: #001011;
   color: #EFC7C2;
-  min-width: 500px;
+  min-width: 600px;
+  padding:2rem;
  border-radius: 15px;
 }
 form{
