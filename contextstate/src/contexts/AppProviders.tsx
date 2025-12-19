@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { TodoContext } from './TodoContext';
-// import './App.css';
+import '../App.css';
 import type { Todo, Theme } from '../types';
 import { mockTodos } from '../data/mockTodos';
 import { ThemeContext } from './ThemeContext';
@@ -52,6 +52,7 @@ export function AppProviders({children}:{children: React.ReactNode}) {
        
 
     <ThemeContext.Provider value={themeValue}>
+        
          <TodoContext.Provider value={value}>{children}</TodoContext.Provider>
     </ThemeContext.Provider>
        
