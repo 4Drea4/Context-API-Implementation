@@ -10,6 +10,7 @@ export function AppProviders({children}:{children: React.ReactNode}) {
   const [todos,setTodos] = useState<Todo[]>(mockTodos);
 
   function addTodo(text:string){
+    console.log("Add todo");
     const newTodo: Todo ={
         id: Date.now(),
         text,
