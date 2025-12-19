@@ -51,9 +51,9 @@ export function AppProviders({children}:{children: React.ReactNode}) {
   return (
        
 
-            <ThemeContext.Provider value={themeValue}>
-                  <TodoContext.Provider value={value}>{children}</TodoContext.Provider>
-            </ThemeContext.Provider>
+    <ThemeContext.Provider value={themeValue}>
+         <TodoContext.Provider value={value}>{children}</TodoContext.Provider>
+    </ThemeContext.Provider>
        
 
   
